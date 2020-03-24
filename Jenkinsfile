@@ -7,9 +7,9 @@ node {
         app = docker.build("ousmana/nginx")
     }
     stage ('Test image') {
-        docker.image("ousmana/nginx").withRun(' -p 8083:8083'){ c ->
+        docker.image("ousmana/nginx").withRun(' -p 80:80'){ c ->
         sh 'docker ps '
-        sh 'curl localhost:8083'
+        sh 'curl localhost:80'
         }
     }
 }
